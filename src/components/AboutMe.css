@@ -1,0 +1,22 @@
+.AboutMe {
+    display: flex;
+    margin: 5em;
+    text-align: justify;
+}
+.sidebyside {
+    margin-left: 3em;
+    width: 40%;
+    flex-grow: 1;
+}
+
+.rside {
+    padding: 1em;
+    margin-left: 15em;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 2em -1em;
+}
+
+img {
+    border-radius: 1em 3em 2em;
+}
