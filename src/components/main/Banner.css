@@ -6,17 +6,17 @@
     color: aliceblue;
     width: 98%;
 
-    background-image: url(../images/sergey-pesterev-JV78PVf3gGI-unsplash.jpg);
+    background-image: url(../../images/bg.jpg);
     background-repeat: no-repeat;
     background-position: left top;
     background-attachment: fixed; 
 }
-h1{
+.h1main {
     font-size: 3em;
     margin-bottom: 0em;
     text-shadow: 0.1em 0.1em 0.5em darkslategray;
 }
-h2{
+.h2main {
     font-size: 2em;
     margin-top: 0em;
     font-weight: 500;

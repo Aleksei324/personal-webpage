@@ -3,10 +3,9 @@ import './Footer.css';
 function Footer(){
     return (
         <footer className="Footer">
-            Camilo Franco Moya - 2022 <br/>
-            Images by <a className='wlink' href="https://unsplash.com/@sickle" title='Link to the author.'>Sergey Pesterev</a>
-            and <a className='wlink' href="https://unsplash.com/@afgprogrammer" title='Link to the author.'>Mohammad Rahmani</a>
-            on <a className='wlink' href="https://unsplash.com" title='Unsplash webpage.'>Unsplash</a><br/>
+            <p>Camilo Franco Moya - 2022</p>
+            <p>Images by <a className='whiteLink' href="https://unsplash.com/@sickle" title='Link to the author'>Sergey Pesterev</a> and <a className='whiteLink' href="https://unsplash.com/@afgprogrammer" title='Link to the author'>Mohammad Rahmani</a> on <a className='whiteLink' href="https://unsplash.com" title='Unsplash webpage'>Unsplash</a></p>
+            <p>Icons by <a className='whiteLink' href="https://www.flaticon.com/authors/freepik" title="Link to the author">Freepik</a> on <a className='whiteLink' href="https://www.flaticon.com" title="Flaticon webpage">Flaticon</a></p>
         </footer>
     );
 }

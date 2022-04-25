@@ -7,18 +7,53 @@ body {
     background-color: aliceblue;
 }
 
-.blink {
-    text-decoration: none;
-    color: darkslategray;
-    font-weight: bold;
+.whiteLink {
+    color: aliceblue;
 }
 
-.wlink {
-    text-decoration: none;
-    color: aliceblue;
+a {
+    color: darkslategray;
     font-weight: bold;
+    text-decoration: none;
+    transition: font-size 0.5s, color 0.5s;
 }
+
 a:hover {
-    transition: font-size 0.5s;
-    font-size: 105%;
+    transition: font-size 0.5s, color 0.5s;
+    font-size: 1.05em;
+    color: rgb(50, 170, 170);
+}
+
+.iconGrow {
+    transition: width 0.5s, height 0.5s;
+    border-radius: 0em;
+    margin: 2em;
+}
+
+.iconGrow:hover {
+    transition: width 0.5s, height 0.5s;
+    width: 64px;
+    height: 64px;
+}
+
+.flex {
+    display: flex;
+    margin: 2em;
+}
+
+.sideBySide {
+    margin-left: 2em;
+    margin-right: 2em;
+    flex-grow: 1;
+}
+
+.imgCool {
+    border-radius: 1em 3em 2em;
+}
+
+.fallback {
+    color: darkslategrey;
+    text-align: center;
+    font-family: 'Ubuntu', 'Roboto', 'Helvetica Neue', sans-serif;
+    background-color: aliceblue;
 }

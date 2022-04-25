@@ -1,0 +1,17 @@
+.ExperienciaSection {
+    text-align: justify;
+}
+
+.ExperienciaButton {
+    padding: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: rgb(50, 170, 170);
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 2em -1em;
+    text-align: center;
+    display: block;
+}
+.ExperienciaButton:hover {
+    background-color: aliceblue;
+}

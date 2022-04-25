@@ -1,11 +1,12 @@
 import './AboutMe.css';
-import imagecode from '../images/mohammad-rahmani-1bNQVGzuy0U-unsplash.jpg';
+import imagecode from '../../images/code.jpg';
 
 function AboutMe(){
     return (
-        <section className="AboutMe">
-            <img src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
-            <div className='sidebyside'>
+        <section className="flex AboutMe">
+            <img className='imgCool' src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
+            
+            <div className='sideBySide'>
                 <h3>About me</h3>
 
                 <p>Welcome to my webpage, I'm just a guy who likes to develop software and webpages, play games and play bass a little;
@@ -27,18 +28,21 @@ function AboutMe(){
                 </i>
 
             </div>
-            <div className='rside'>
+
+            <div className='rSideMain'>
                 <h3>Contact</h3>
+
                 <ul>
                     <li>
                         Github:
-                        <a className='blink' href='https://github.com/Aleksei324' title='Link to my personal Github.'>Aleksei324</a>
+                        <a href='https://github.com/Aleksei324' title='Link to my personal Github.'>Aleksei324</a>
                     </li>
                     <li>
                         LinkedIn:
-                        <a className='blink' href='https://www.linkedin.com/in/aleksei324' title='Link to my personal LinkedIn.'>Aleksei324</a>
+                        <a href='https://www.linkedin.com/in/aleksei324' title='Link to my personal LinkedIn.'>Aleksei324</a>
                     </li>
                 </ul>
+
             </div>
         </section>
     );

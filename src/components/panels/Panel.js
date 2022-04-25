@@ -5,9 +5,9 @@ function Panel(){
     return (
         <header className="Panel">
             <nav>
-                <Link to='/' className='blink'>Main&nbsp;page</Link>
-                <Link to='/experience' className='blink'>My&nbsp;experience</Link>
-                <Link to='/education' className='blink'>My&nbsp;education</Link>
+                <Link to='/' className='navLink'>Main&nbsp;page</Link>
+                <Link to='/some-projects' className='navLink'>Some&nbsp;projects</Link>
+                <Link to='/education' className='navLink'>My&nbsp;education</Link>
             </nav>
         </header>
     );
