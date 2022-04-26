@@ -7,7 +7,7 @@ function AboutMe(){
             <img className='imgCool' src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
             
             <div className='sideBySide'>
-                <h3>About me</h3>
+                <h2>About me</h2>
 
                 <p>Welcome to my webpage, I'm just a guy who likes to develop software and webpages, play games and play bass a little;
                 I like to tinker with <i>Linux</i> and open source in general, and I'm changing distros a lot.
@@ -34,12 +34,12 @@ function AboutMe(){
 
                 <ul>
                     <li>
-                        Github:
-                        <a href='https://github.com/Aleksei324' title='Link to my personal Github.'>Aleksei324</a>
+                        Github:&nbsp;
+                        <a target='_blank' rel="noreferrer" href='https://github.com/Aleksei324' title='Link to my personal Github.'>Aleksei324</a>
                     </li>
                     <li>
-                        LinkedIn:
-                        <a href='https://www.linkedin.com/in/aleksei324' title='Link to my personal LinkedIn.'>Aleksei324</a>
+                        LinkedIn:&nbsp;
+                        <a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/aleksei324' title='Link to my personal LinkedIn.'>Aleksei324</a>
                     </li>
                 </ul>
 

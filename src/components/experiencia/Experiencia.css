@@ -1,5 +1,5 @@
 .border {
-    text-align: justify;
+    text-align: center;
     margin: 2em;
     background-color: white;
     border-radius: 1em;
@@ -8,6 +8,6 @@
 }
 
 .space {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 14%;
+    margin-right: 14%;
 }

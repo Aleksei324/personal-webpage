@@ -8,7 +8,7 @@ import Footer from './components/panels/Footer.js';
 
 import Main from './components/main/Main.js';
 import Experiencia from './components/experiencia/Experiencia.js';
-import Education from './components/education/Education.js';
+import Minigame from './components/minigame/Minigame.js';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Main/>}/>
             <Route exact path='/some-projects' element={<Experiencia/>}/>
-            <Route exact path='/education' element={<Education/>}/>
+            <Route exact path='/minigame' element={<Minigame/>}/>
           </Routes>
         
           <Footer/>

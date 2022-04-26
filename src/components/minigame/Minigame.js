@@ -1,6 +1,6 @@
-function Education() {
+function Minigame() {
     return (
-        <div className="Education">
+        <div className="Minigame">
             a<br/>
             a<br/>
             a<br/>
@@ -10,4 +10,4 @@ function Education() {
     );
 }
 
-export default Education;
+export default Minigame;
