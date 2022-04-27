@@ -4,9 +4,9 @@ import imagecode from '../../images/code.jpg';
 function AboutMe(){
     return (
         <section className="flex AboutMe">
-            <img className='imgCool mar' src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
-            
             <div className='centerSideMain mar'>
+                
+                <img className='imgCool imgMain' src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
                 <h2>About me</h2>
 
                 <p>Welcome to my webpage, I'm just a guy who likes to develop software and webpages, play games and play bass a little;

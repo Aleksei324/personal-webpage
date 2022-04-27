@@ -1,16 +1,17 @@
 .AboutMe {
-    text-align: justify;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .centerSideMain {
-    padding-right: 5em;
+    text-align: justify;
+    min-width: 350px;
+    max-width: 70%;
 }
 
 .rSideMain {
-    padding-top: 1em;
-    padding-left: 3em;
-    padding-right: 3em;
-    padding-bottom: 1em;
+    padding: 1em;
     background-color: white;
     border-radius: 1em;
     box-shadow: 0.5em 0.5em 2em -1em;
@@ -20,4 +21,10 @@
     font-size: 1.5em;
     float: left;
     margin-right: 3em;
+}
+
+.imgMain {
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 2em;
 }
