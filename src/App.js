@@ -1,18 +1,19 @@
 import './App.css';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 import Panel from './components/panels/Panel.js';
 import Footer from './components/panels/Footer.js';
 
-import Main from './components/main/Main.js';
-import Experiencia from './components/experiencia/Experiencia.js';
-import Minigame from './components/minigame/Minigame.js';
+const Main = lazy(() => import('./components/main/Main.js'))
+const Experiencia = lazy(() => import('./components/experiencia/Experiencia.js'))
+const Minigame = lazy(() => import('./components/minigame/Minigame.js'))
 
 function App() {
   return (
       <BrowserRouter className="App">
+        {/* Showing a message while loading the page */}
         <Suspense fallback={<h2 className='fallback'>Loading...</h2>}>
 
           <Panel/>

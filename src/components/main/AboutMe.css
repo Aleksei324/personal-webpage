@@ -2,9 +2,15 @@
     text-align: justify;
 }
 
+.centerSideMain {
+    padding-right: 5em;
+}
+
 .rSideMain {
-    padding: 1em;
-    margin-left: 15em;
+    padding-top: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-bottom: 1em;
     background-color: white;
     border-radius: 1em;
     box-shadow: 0.5em 0.5em 2em -1em;

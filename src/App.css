@@ -38,13 +38,14 @@ a:hover {
 
 .flex {
     display: flex;
-    margin: 2em;
 }
 
 .sideBySide {
-    margin-left: 2em;
-    margin-right: 2em;
     flex-grow: 1;
+}
+
+.mar {
+    margin: 1em;
 }
 
 .imgCool {
@@ -52,7 +53,9 @@ a:hover {
 }
 
 .fallback {
-    color: darkslategrey;
+    font-size: 5em;
+    margin: 5em;
+    color:lightgray;
     text-align: center;
     font-family: 'Ubuntu', 'Roboto', 'Helvetica Neue', sans-serif;
     background-color: aliceblue;
