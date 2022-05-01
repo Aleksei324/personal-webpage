@@ -1,0 +1,29 @@
+.GameOverModalWindow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 1em;
+    text-align: center;
+    color: darkslategray;
+    font-weight: bold;
+    font-size: 1.5em;
+
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 2em -1em;
+}
+
+.gameOverInactive {
+    display: none;
+}
+
+.blackOverlayGameOver {
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(71, 61, 139, 0.25);
+}

@@ -1,6 +1,6 @@
 import Restart from './Restart.js';
 
-function CheckPiece(getValues, reRender, temp, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece) {
+function CheckPiece(getValues, reRender, temp, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver) {
     /**
      * Checks and create one if there is no playable piece,
      * or checks if the piece is able to fall, if not then
@@ -30,6 +30,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
 
                 }
                 else {
+                    gameOver.current = true;
                     Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
@@ -55,6 +56,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
 
                 }
                 else {
+                    gameOver.current = true;
                     Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
@@ -80,6 +82,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
 
                 }
                 else {
+                    gameOver.current = true;
                     Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
@@ -104,6 +107,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
                     y_piece.current = 0;
                 }
                 else {
+                    gameOver.current = true;
                     Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }

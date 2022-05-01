@@ -3,6 +3,7 @@ import './Minigame.css';
 import Values from './Values.js';
 import CreatePiecesList from './CreatePiecesList.js';
 import UpdateGrid from './UpdateGrid.js';
+import GameOverModalWindow from './GameOverModalWindow.js';
 
 function Minigame() {
 
@@ -16,6 +17,7 @@ function Minigame() {
     const piece_orientation = useRef(0);
     const x_piece = useRef(3); /* X (Width index) coordinate of piece */
     const y_piece = useRef(0); /* Y (Height index) coordinate of piece */
+    const gameOver = useRef(false);
     
     /*
      * 0: No piece in tile.
@@ -52,7 +54,7 @@ function Minigame() {
             }
             
             UpdateGrid(
-                getValues, reRender, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece
+                getValues, reRender, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver
                 );
 
             setTimeout(GameLoop, getValues.dificulty * 1000);
@@ -64,7 +66,7 @@ function Minigame() {
             <br/>
             <br/>
             <br/>
-
+            <GameOverModalWindow gameOver={gameOver} reRender={reRender}/>
             <h1 className="titleSubpage">Minigame</h1>
             <button className='buttonMini mar' onClick={StartNPause}>Start &amp; pause</button>
             

@@ -1,7 +1,7 @@
 import RenderPiece from './RenderPiece.js';
 import CheckPiece from './CheckPiece.js';
 
-function UpdateGrid(getValues, reRender, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece) {
+function UpdateGrid(getValues, reRender, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver) {
     /**
     * Update the html grid to show
     * the pieces and obstacles
@@ -26,7 +26,7 @@ function UpdateGrid(getValues, reRender, started, grid_final, piece_falling, pie
 
     /* All the new obstacles and new empty zones are updated in the visible html grid */
     grid_final.current = JSON.parse(JSON.stringify(CheckPiece(
-        getValues, reRender, temp_grid, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece
+        getValues, reRender, temp_grid, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver
         )));
     
     RenderPiece(piece_falling, piece_orientation, grid_final, x_piece, y_piece);
