@@ -1,0 +1,49 @@
+.Minigame {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(8, auto);
+    background-color: darkslategray;
+    max-width: 17em;
+    margin: auto;
+}
+
+.buttonMini {
+    color: darkslategray;
+    font-weight: bold;
+    font-size: 1em;
+
+    text-align: center;
+    padding: 1em;
+    width: 17em;
+
+    background-color: rgb(50, 170, 170);
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 2em -1em;
+    
+    transition: font-size 0.5s, color 0.5s;
+}
+
+.buttonMini:hover {
+    transition: font-size 0.5s, color 0.5s;
+
+    font-size: 1.05em;
+    color: rgb(50, 170, 170);
+    background-color: aliceblue;
+}
+
+.scoreMini {
+    font-size: 1.5em;
+}
+
+.tileMini {
+    padding: 0em;
+    margin: 0em;
+    width: 2em;
+    height: 2em;
+    border: 1px solid darkslategray;
+}
+
+.pieceTile {
+    background-color: rgb(50, 170, 170);
+}

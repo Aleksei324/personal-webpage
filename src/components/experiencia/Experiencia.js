@@ -13,7 +13,7 @@ function Experiencia() {
             <br/>
             <br/>
             <br/>
-            <h1 className='h1Exp'>Some projects</h1>
+            <h1 className='titleSubpage'>Some projects</h1>
             <section className='Experiencia flex'>
                 
                 <div className='border flex'>
@@ -63,7 +63,11 @@ function Experiencia() {
             <br/>
             <p>... and some more in <a target='_blank' rel="noreferrer" href='https://github.com/Aleksei324' title='Link to my personal Github.'>my Github.</a></p>
             <br/>
-            <br/>
+            
+            <br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/>
+            <br/><br/>
+            
         </div>
     );
 }
