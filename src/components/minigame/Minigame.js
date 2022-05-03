@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import './Minigame.css';
 import Values from './Values.js';
 import CreatePiecesList from './CreatePiecesList.js';
@@ -59,7 +59,29 @@ function Minigame() {
 
             setTimeout(GameLoop, getValues.dificulty * 1000);
         }
-    }, [])
+    }, [getValues, reRender])
+
+    const KeyboardListener = (e) => {
+        switch (e.key) {
+            case 'ArrowLeft':
+                break;
+
+            case 'ArrowRight':
+                break;
+
+            case 'ArrowUp':
+                break;
+            
+            default:
+                return null;
+        }
+    }
+
+    /* Listen keyboard when subpage is loaded and stop listening when unloaded. */
+    useEffect(() => {
+        document.addEventListener('keydown', KeyboardListener);
+        return () => {document.removeEventListener("keydown", KeyboardListener);}
+    },[]);
     
     return (
         <div>
