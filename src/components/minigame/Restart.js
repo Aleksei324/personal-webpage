@@ -1,5 +1,4 @@
 function Restart(started, score, highscore, piece_falling, piece_orientation, x_piece, y_piece) {
-    console.log('Restart')
 
     started.current = false;
 

@@ -1,5 +1,4 @@
 function RemovePlayablePiece(getValues, temp) {
-    console.log('RemovePlayablePiece')
 
     for (let i=0; i<getValues.height; i++) {
         if (temp[i].includes(2)) {

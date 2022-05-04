@@ -12,7 +12,6 @@ function CreatePiecesList(piecesList) {
      * 3: Square piece
      * 4: L piece
      */
-    console.log('CreatePiecesList')
 
     let result = [];
     let rand_piece = Math.floor(Math.random() * 4) + 1;

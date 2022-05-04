@@ -3,7 +3,6 @@ function RenderPiece(piece_falling, piece_orientation, grid_final, x_piece, y_pi
      * If there are actual playable pieces currently
      * active, paint it in the html grid
      */
-    console.log('RenderPiece')
 
     switch (piece_falling.current) {
         case 0:

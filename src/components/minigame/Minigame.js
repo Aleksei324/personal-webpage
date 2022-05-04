@@ -6,6 +6,7 @@ import UpdateGrid from './UpdateGrid.js';
 import GameOverModalWindow from './GameOverModalWindow.js';
 import MoveRight from './MoveRight.js';
 import MoveLeft from './MoveLeft.js';
+import Rotate from './Rotate.js';
 
 function Minigame() {
 
@@ -49,7 +50,6 @@ function Minigame() {
          * Keep a loop updating the next-pieces list
          * and rendering new frames of the game
          */
-        console.log('GameLoop - - -')
 
         if (started.current) {
             if (piecesList.current.length < 1) {
@@ -76,6 +76,7 @@ function Minigame() {
                 break;
 
             case 'ArrowUp':
+                Rotate(getValues, reRender, piece_falling, piece_orientation, grid_final, x_piece, y_piece, started);
                 break;
             
             default:

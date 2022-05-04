@@ -6,7 +6,6 @@ function CheckPiece(getValues, temp, started, piece_falling, piece_orientation, 
      * or checks if the piece is able to fall, if not then
      * it convert the piece in obstacles
      */
-    console.log('CheckPiece')
 
     /** If there is no playable piece... */
     if (piece_falling.current === 0) {

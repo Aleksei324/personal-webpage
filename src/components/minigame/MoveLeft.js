@@ -2,7 +2,6 @@ import RemovePlayablePiece from "./RemovePlayablePiece.js";
 import RenderPiece from "./RenderPiece";
 
 function MoveLeft(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started) {
-    console.log('MoveLeft')
 
     if (piece_falling.current !== 0 && x_piece.current > 0 && started.current) {
 

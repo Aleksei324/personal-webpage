@@ -8,7 +8,6 @@ function UpdateGrid(getValues, started, grid_final, piece_falling, piece_orienta
     * Update the html grid to show
     * the pieces and obstacles
     */
-    console.log('UpdateGrid')
 
     /* Makes a temporary copy of the grid array */
     let temp_grid = JSON.parse(JSON.stringify(grid_final.current));
