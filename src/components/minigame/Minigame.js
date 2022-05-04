@@ -10,7 +10,7 @@ import MoveLeft from './MoveLeft.js';
 function Minigame() {
 
     /* Grid: A matrix with 16 rows and 8 columns filled with zeroes. */
-    const grid_final = useRef(JSON.parse(JSON.stringify(Array(16).fill( new Array(8).fill(0) ))) );
+    const grid_final = useRef( JSON.parse(JSON.stringify(Array(16).fill( Array(8).fill(0) ))) );
     const started = useRef(false);
     const piecesList = useRef([Math.floor(Math.random() * 4) + 1]);
     const highscore = useRef(0);
@@ -117,7 +117,7 @@ function Minigame() {
             <p className='scoreMini'><b>Highscore:</b> {highscore.current} | <b>Score:</b> {score.current}</p>
             <br/>
 
-            <br/>
+            <br/><br/><br/><br/><br/>
         </div>
     );
 }

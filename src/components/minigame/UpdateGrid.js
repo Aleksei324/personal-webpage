@@ -1,6 +1,7 @@
 import RenderPiece from './RenderPiece.js';
 import CheckPiece from './CheckPiece.js';
 import RemovePlayablePiece from './RemovePlayablePiece.js';
+import RemoveLine from './RemoveLine.js';
 
 function UpdateGrid(getValues, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver) {
     /**
@@ -19,6 +20,8 @@ function UpdateGrid(getValues, started, grid_final, piece_falling, piece_orienta
     grid_final.current = JSON.parse(JSON.stringify(CheckPiece(
         getValues, temp_grid, started, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver
         )));
+
+    RemoveLine(getValues, grid_final, score);
 
     RenderPiece(piece_falling, piece_orientation, grid_final, x_piece, y_piece);
 }
