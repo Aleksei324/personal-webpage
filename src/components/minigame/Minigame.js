@@ -4,6 +4,7 @@ import Values from './Values.js';
 import CreatePiecesList from './CreatePiecesList.js';
 import UpdateGrid from './UpdateGrid.js';
 import GameOverModalWindow from './GameOverModalWindow.js';
+import MoveRight from './MoveRight.js';
 
 function Minigame() {
 
@@ -17,8 +18,9 @@ function Minigame() {
     const piece_orientation = useRef(0);
     const x_piece = useRef(3); /* X (Width index) coordinate of piece */
     const y_piece = useRef(0); /* Y (Height index) coordinate of piece */
-    const gameOver = useRef(false);
-    
+    const gameOver = useRef(false); /* Activate or deactivate game over screen */
+    const timers = useRef([]); /* Array with timers id */
+
     /*
      * 0: No piece in tile.
      * 1: Normal piece in tile.
@@ -41,32 +43,34 @@ function Minigame() {
         }
     }
 
-    const GameLoop = useCallback(() => {
+    const GameLoop = () => {
         /** 
-        * Keep a loop updating the next-pieces list
-        * and rendering new frames of the game
-        */
+         * Keep a loop updating the next-pieces list
+         * and rendering new frames of the game
+         */
         console.log('GameLoop - - -')
 
         if (started.current) {
             if (piecesList.current.length < 1) {
                 CreatePiecesList(piecesList);
             }
-            
+
             UpdateGrid(
-                getValues, reRender, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver
+                getValues, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver
                 );
 
-            setTimeout(GameLoop, getValues.dificulty * 1000);
+            reRender(true);
+            timers.current.push( setTimeout(GameLoop, getValues.dificulty * 1000) );
         }
-    }, [getValues, reRender])
+    }
 
-    const KeyboardListener = (e) => {
+    const KeyboardListener = useCallback((e) => {
         switch (e.key) {
             case 'ArrowLeft':
                 break;
 
             case 'ArrowRight':
+                MoveRight(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started);
                 break;
 
             case 'ArrowUp':
@@ -75,14 +79,22 @@ function Minigame() {
             default:
                 return null;
         }
-    }
+    }, [getValues, reRender]);
 
     /* Listen keyboard when subpage is loaded and stop listening when unloaded. */
     useEffect(() => {
         document.addEventListener('keydown', KeyboardListener);
-        return () => {document.removeEventListener("keydown", KeyboardListener);}
-    },[]);
-    
+        return () => {
+            document.removeEventListener("keydown", KeyboardListener);
+            if (!started.current) {
+                for (let id of timers.current) {
+                    clearTimeout(id);
+                }
+                timers.current = [];
+            }
+        }
+    },[KeyboardListener]);
+
     return (
         <div>
             <br/>
@@ -91,7 +103,7 @@ function Minigame() {
             <GameOverModalWindow gameOver={gameOver} reRender={reRender}/>
             <h1 className="titleSubpage">Minigame</h1>
             <button className='buttonMini mar' onClick={StartNPause}>Start &amp; pause</button>
-            
+
             <div className='Minigame'>
                 {grid_final.current.map(
                     (y_grid, i) => (y_grid.map(

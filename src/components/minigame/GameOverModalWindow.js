@@ -4,7 +4,7 @@ function GameOverModalWindow(props) {
 
     const deactivateGameOver = () => {
         props.gameOver.current = false;
-        props.reRender({render: true});
+        props.reRender(true);
     }
 
     return (

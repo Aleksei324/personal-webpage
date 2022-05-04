@@ -1,6 +1,6 @@
 import Restart from './Restart.js';
 
-function CheckPiece(getValues, reRender, temp, started, grid_final, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver) {
+function CheckPiece(getValues, temp, started, piece_falling, piece_orientation, piecesList, highscore, score, x_piece, y_piece, gameOver) {
     /**
      * Checks and create one if there is no playable piece,
      * or checks if the piece is able to fall, if not then
@@ -31,7 +31,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
                 }
                 else {
                     gameOver.current = true;
-                    Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
+                    Restart(started, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
                 break;
@@ -57,7 +57,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
                 }
                 else {
                     gameOver.current = true;
-                    Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
+                    Restart(started, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
                 break;
@@ -83,7 +83,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
                 }
                 else {
                     gameOver.current = true;
-                    Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
+                    Restart(started, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
                 break;
@@ -108,7 +108,7 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
                 }
                 else {
                     gameOver.current = true;
-                    Restart(getValues, reRender, started, grid_final, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
+                    Restart(started, score, highscore, piece_falling, piece_orientation, x_piece, y_piece);
                     return Array(getValues.height).fill( Array(getValues.width).fill(0) );
                 }
                 break;
@@ -280,261 +280,263 @@ function CheckPiece(getValues, reRender, temp, started, grid_final, piece_fallin
     }
 
     /* Checks if the piece can go down one line */
-    if (piece_falling.current !== 0) {
-        switch (piece_falling.current) {
-            case 1:
-                /* I piece */
-                switch (piece_orientation.current) {
-                    case 0:
-                    case 2:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
-                            temp[y_piece.current+1][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+2] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current][x_piece.current-1] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
-                            temp[y_piece.current][x_piece.current+2] = 1;
+    switch (piece_falling.current) {
+        case 0:
+            break;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+        case 1:
+            /* I piece */
+            switch (piece_orientation.current) {
+                case 0:
+                case 2:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
+                        temp[y_piece.current+1][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+2] === 0) {
 
-                    case 1:
-                    case 3:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+3][x_piece.current] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current-1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
-                            temp[y_piece.current+2][x_piece.current] = 1;
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current][x_piece.current-1] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
+                        temp[y_piece.current][x_piece.current+2] = 1;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
-                }
-                break;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
 
-            case 2:
-                /* T piece */
-                switch (piece_orientation.current) {
-                    case 0:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0 && 
-                            temp[y_piece.current+2][x_piece.current] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current][x_piece.current-1] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
+                case 1:
+                case 3:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+3][x_piece.current] === 0) {
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current-1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
+                        temp[y_piece.current+2][x_piece.current] = 1;
 
-                    case 1:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+2][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current-1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current-1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current-1] = 1;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
+            }
+            break;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+        case 2:
+            /* T piece */
+            switch (piece_orientation.current) {
+                case 0:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0 && 
+                        temp[y_piece.current+2][x_piece.current] === 0) {
 
-                    case 2:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
-                            temp[y_piece.current+1][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current][x_piece.current-1] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
-                            temp[y_piece.current-1][x_piece.current] = 1;
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current][x_piece.current-1] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
 
-                    case 3:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+2][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current-1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
+                case 1:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+2][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current-1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current-1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current-1] = 1;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
-                }
-                break;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
 
-            case 3:
-                /* Square piece */
-                /* If there is space below the piece... */
-                if (temp[y_piece.current+2][x_piece.current] === 0 && 
-                    temp[y_piece.current+2][x_piece.current+1] === 0) {
-                    
-                    y_piece.current += 1;
-                }
-                /* If there is an obstruction below the piece... */
-                else {
-                    temp[y_piece.current][x_piece.current] = 1;
-                    temp[y_piece.current][x_piece.current+1] = 1;
-                    temp[y_piece.current+1][x_piece.current] = 1;
-                    temp[y_piece.current+1][x_piece.current+1] = 1;
+                case 2:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
+                        temp[y_piece.current+1][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current][x_piece.current-1] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
+                        temp[y_piece.current-1][x_piece.current] = 1;
 
-                    piece_falling.current = 0;
-                    piece_orientation.current = 0;
-                    x_piece.current = 3;
-                    y_piece.current = 0;
-                }
-                break;
-            
-            case 4:
-                /* L piece */
-                switch (piece_orientation.current) {
-                    case 0:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+1][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0 && 
-                            temp[y_piece.current+2][x_piece.current-1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current][x_piece.current-1] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
-                            temp[y_piece.current+1][x_piece.current-1] = 1;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
-                    case 1:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+2][x_piece.current] === 0 && 
-                            temp[y_piece.current][x_piece.current-1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current-1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
-                            temp[y_piece.current-1][x_piece.current-1] = 1;
+                case 3:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+2][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current-1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
+            }
+            break;
 
-                    case 2:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
-                            temp[y_piece.current+1][x_piece.current] === 0 && 
-                            temp[y_piece.current+1][x_piece.current+1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current][x_piece.current-1] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current+1] = 1;
-                            temp[y_piece.current-1][x_piece.current+1] = 1;
+        case 3:
+            /* Square piece */
+            /* If there is space below the piece... */
+            if (temp[y_piece.current+2][x_piece.current] === 0 && 
+                temp[y_piece.current+2][x_piece.current+1] === 0) {
+                
+                y_piece.current += 1;
+            }
+            /* If there is an obstruction below the piece... */
+            else {
+                temp[y_piece.current][x_piece.current] = 1;
+                temp[y_piece.current][x_piece.current+1] = 1;
+                temp[y_piece.current+1][x_piece.current] = 1;
+                temp[y_piece.current+1][x_piece.current+1] = 1;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
+                piece_falling.current = 0;
+                piece_orientation.current = 0;
+                x_piece.current = 3;
+                y_piece.current = 0;
+            }
+            break;
+        
+        case 4:
+            /* L piece */
+            switch (piece_orientation.current) {
+                case 0:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+1][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0 && 
+                        temp[y_piece.current+2][x_piece.current-1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current][x_piece.current-1] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
+                        temp[y_piece.current+1][x_piece.current-1] = 1;
 
-                    case 3:
-                        /* If there is space below the piece... */
-                        if (temp[y_piece.current+2][x_piece.current] === 0 && 
-                            temp[y_piece.current+2][x_piece.current+1] === 0) {
-                            
-                            y_piece.current += 1;
-                        }
-                        /* If there is an obstruction below the piece... */
-                        else {
-                            temp[y_piece.current-1][x_piece.current] = 1;
-                            temp[y_piece.current][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current] = 1;
-                            temp[y_piece.current+1][x_piece.current+1] = 1;
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
 
-                            piece_falling.current = 0;
-                            piece_orientation.current = 0;
-                            x_piece.current = 3;
-                            y_piece.current = 0;
-                        }
-                        break;
-                }
-                break;
-        }
+                case 1:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+2][x_piece.current] === 0 && 
+                        temp[y_piece.current][x_piece.current-1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current-1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
+                        temp[y_piece.current-1][x_piece.current-1] = 1;
+
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
+
+                case 2:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+1][x_piece.current-1] === 0 && 
+                        temp[y_piece.current+1][x_piece.current] === 0 && 
+                        temp[y_piece.current+1][x_piece.current+1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current][x_piece.current-1] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current+1] = 1;
+                        temp[y_piece.current-1][x_piece.current+1] = 1;
+
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
+
+                case 3:
+                    /* If there is space below the piece... */
+                    if (temp[y_piece.current+2][x_piece.current] === 0 && 
+                        temp[y_piece.current+2][x_piece.current+1] === 0) {
+                        
+                        y_piece.current += 1;
+                    }
+                    /* If there is an obstruction below the piece... */
+                    else {
+                        temp[y_piece.current-1][x_piece.current] = 1;
+                        temp[y_piece.current][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current] = 1;
+                        temp[y_piece.current+1][x_piece.current+1] = 1;
+
+                        piece_falling.current = 0;
+                        piece_orientation.current = 0;
+                        x_piece.current = 3;
+                        y_piece.current = 0;
+                    }
+                    break;
+            }
+            break;
     }
     return temp;
 }

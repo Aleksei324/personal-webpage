@@ -5,7 +5,9 @@ function Values(h, w, d, r) {
         height: h, width: w, dificulty: d, render: r
     });
 
-    return [getValues, setValues]
+    return [getValues, (re) => {
+        setValues({height: getValues.height, width: getValues.width, dificulty: getValues.dificulty, render: re});
+    }]
 }
 
 export default Values;

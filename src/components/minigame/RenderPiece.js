@@ -6,6 +6,9 @@ function RenderPiece(piece_falling, piece_orientation, grid_final, x_piece, y_pi
     console.log('RenderPiece')
 
     switch (piece_falling.current) {
+        case 0:
+            break;
+
         case 1:
             /* I piece */
             switch (piece_orientation.current){
