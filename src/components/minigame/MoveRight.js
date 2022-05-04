@@ -5,7 +5,7 @@ function MoveRight(getValues, reRender, grid_final, piece_falling, piece_orienta
     console.log('MoveRight')
 
     if (piece_falling.current !== 0 && x_piece.current < getValues.width - 1 && started.current) {
-        
+
         /* Makes a temporary copy of the grid array */
         let temp = JSON.parse(JSON.stringify(grid_final.current));
 

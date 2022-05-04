@@ -5,6 +5,7 @@ import CreatePiecesList from './CreatePiecesList.js';
 import UpdateGrid from './UpdateGrid.js';
 import GameOverModalWindow from './GameOverModalWindow.js';
 import MoveRight from './MoveRight.js';
+import MoveLeft from './MoveLeft.js';
 
 function Minigame() {
 
@@ -67,6 +68,7 @@ function Minigame() {
     const KeyboardListener = useCallback((e) => {
         switch (e.key) {
             case 'ArrowLeft':
+                MoveLeft(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started);
                 break;
 
             case 'ArrowRight':
