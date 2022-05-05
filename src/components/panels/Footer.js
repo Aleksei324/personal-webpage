@@ -3,8 +3,8 @@ import './Footer.css';
 function Footer(){
     return (
         <footer className="Footer">
-            <p>Camilo Franco Moya - 2022</p>
-            <p>Images by <a target='_blank'
+            <p className='mar'>Camilo Franco Moya - 2022</p>
+            <p className='mar'>Images by <a target='_blank'
                             rel="noreferrer"
                             className='whiteLink'
                             href="https://unsplash.com/@sickle"
@@ -18,7 +18,7 @@ function Footer(){
                             href="https://unsplash.com"
                             title='Unsplash webpage'>Unsplash</a></p>
             
-            <p>Icons by <a target='_blank'
+            <p className='mar'>Icons by <a target='_blank'
                             rel="noreferrer"
                             className='whiteLink'
                             href="https://www.flaticon.com/authors/freepik"

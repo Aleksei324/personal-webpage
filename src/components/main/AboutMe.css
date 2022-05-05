@@ -1,17 +1,21 @@
 .AboutMe {
     text-align: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .centerSideMain {
     text-align: justify;
-    min-width: 350px;
-    max-width: 70%;
+    min-width: 300px;
+    max-width: 100%;
 }
 
 .rSideMain {
     padding: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-left: 0em;
+    margin-right: 0em;
     background-color: white;
     border-radius: 1em;
     box-shadow: 0.5em 0.5em 2em -1em;
@@ -20,11 +24,27 @@
 .oneLine {
     font-size: 1.5em;
     float: left;
-    margin-right: 3em;
+    margin-right: 2em;
 }
 
 .imgMain {
     float: left;
-    margin-right: 2em;
-    margin-bottom: 2em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+@media only screen and (orientation: landscape) {
+    .centerSideMain {
+        max-width: 60%;
+    }
+
+    .AboutMe {
+        justify-content: space-between;
+    }
+
+    .rSideMain {
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-right: 1em;
+    }
 }

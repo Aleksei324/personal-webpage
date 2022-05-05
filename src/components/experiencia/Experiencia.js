@@ -65,9 +65,7 @@ function Experiencia() {
             <br/>
             
             <br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/>
             <br/><br/>
-            
         </div>
     );
 }

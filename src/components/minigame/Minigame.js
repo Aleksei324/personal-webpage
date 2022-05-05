@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import './Minigame.css';
+
 import Values from './Values.js';
 import CreatePiecesList from './CreatePiecesList.js';
 import UpdateGrid from './UpdateGrid.js';
@@ -7,6 +8,10 @@ import GameOverModalWindow from './GameOverModalWindow.js';
 import MoveRight from './MoveRight.js';
 import MoveLeft from './MoveLeft.js';
 import Rotate from './Rotate.js';
+
+import imgArrowLeft from '../../images/arrow-left.png';
+import imgArrowUp from '../../images/arrow-up.png';
+import imgArrowRight from '../../images/arrow-right.png';
 
 function Minigame() {
 
@@ -116,9 +121,19 @@ function Minigame() {
             </div>
 
             <p className='scoreMini'><b>Highscore:</b> {highscore.current} | <b>Score:</b> {score.current}</p>
+            <button className='buttonArrowsMini' onClick={() => MoveLeft(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started)}>
+                <img src={imgArrowLeft} alt='Keyboard left arrow image' width='64' height='64'/>
+            </button>
+            <button className='buttonArrowsMini' onClick={() => Rotate(getValues, reRender, piece_falling, piece_orientation, grid_final, x_piece, y_piece, started)}>
+                <img src={imgArrowUp} alt='Keyboard up arrow image' width='64' height='64'/>
+            </button>
+            
+            <button className='buttonArrowsMini' onClick={() => MoveRight(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started)}>
+                <img src={imgArrowRight} alt='Keyboard right arrow image' width='64' height='64'/>
+            </button>
             <br/>
 
-            <br/><br/><br/><br/><br/>
+            <br/><br/>
         </div>
     );
 }

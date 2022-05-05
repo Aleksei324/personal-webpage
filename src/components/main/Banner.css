@@ -1,6 +1,6 @@
 .Banner {
     padding: 1%;
-    padding-top: 40em;
+    padding-top: 35em;
     text-align: left;
     color: aliceblue;
     width: 98%;
@@ -14,14 +14,14 @@
     margin-bottom: 0em;
     padding-bottom: 0em;
 
-    font-size: 3em;
+    font-size: 2em;
     text-shadow: 0.1em 0.1em 0.5em darkslategray;
 }
 .h2main {
     margin-top: 0em;
     padding-top: 0em;
 
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 500;
     font-style: italic;
 

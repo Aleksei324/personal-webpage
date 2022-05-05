@@ -6,7 +6,7 @@ function AboutMe(){
         <section className="flex AboutMe">
             <div className='centerSideMain mar'>
                 
-                <img className='imgCool imgMain' src={imagecode} alt='A computer with code and a cup' width='350' height='250'/>
+                <img className='imgCool imgMain' src={imagecode} alt='A computer with code and a cup' width='300' height='200'/>
                 <h2>About me</h2>
 
                 <p>Welcome to my webpage, I'm just a guy who likes to develop software and webpages, play games and play bass a little;
@@ -16,7 +16,9 @@ function AboutMe(){
                 <p>My favourite language right now is <i>Python</i>. Currently using <i>Visual Studio Codium</i>.
                 Feel free to contact me if you want to talk, collaborate or correct me on something.</p>
 
-                <p><b>I have knowledge in software development with technologies such as:</b></p>
+                <br/>
+
+                <h3>I have knowledge in software development with technologies such as:</h3>
                 
                 <i>
                 <ul>
