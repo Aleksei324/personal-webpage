@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Routes, Route, HashRouter} from 'react-router-dom'
 import { lazy, Suspense } from 'react';
 
 import Panel from './components/panels/Panel.js';
@@ -11,7 +11,7 @@ const Minigame = lazy(() => import('./components/minigame/Minigame.js'))
 
 function App() {
   return (
-      <BrowserRouter className="App">
+      <HashRouter className="App">
         {/* Showing a message while loading the page */}
         <Suspense fallback={<h2 className='fallback'>Loading...</h2>}>
 
@@ -26,7 +26,7 @@ function App() {
           <Footer/>
 
         </Suspense>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
