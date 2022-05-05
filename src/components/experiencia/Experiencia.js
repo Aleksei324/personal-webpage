@@ -55,7 +55,7 @@ function Experiencia() {
                         <img className='iconGrow' src={imagereact} alt='React icon' title='React' width='32' height='32'/>
                         <img className='iconGrow' src={imagecss} alt='CSS icon' title='CSS 3' width='32' height='32'/>
                     </div>
-                    <ExperienciaButton link="https://github.com/Aleksei324/personal-webpage"/>
+                    <ExperienciaButton link="https://github.com/Aleksei324/webpage"/>
                 </div>
 
             </section>
