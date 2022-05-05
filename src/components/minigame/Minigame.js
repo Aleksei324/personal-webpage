@@ -122,14 +122,14 @@ function Minigame() {
 
             <p className='scoreMini'><b>Highscore:</b> {highscore.current} | <b>Score:</b> {score.current}</p>
             <button className='buttonArrowsMini' onClick={() => MoveLeft(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started)}>
-                <img src={imgArrowLeft} alt='Keyboard left arrow image' width='64' height='64'/>
+                <img src={imgArrowLeft} alt='Keyboard left arrow' width='64' height='64'/>
             </button>
             <button className='buttonArrowsMini' onClick={() => Rotate(getValues, reRender, piece_falling, piece_orientation, grid_final, x_piece, y_piece, started)}>
-                <img src={imgArrowUp} alt='Keyboard up arrow image' width='64' height='64'/>
+                <img src={imgArrowUp} alt='Keyboard up arrow' width='64' height='64'/>
             </button>
             
             <button className='buttonArrowsMini' onClick={() => MoveRight(getValues, reRender, grid_final, piece_falling, piece_orientation, x_piece, y_piece, started)}>
-                <img src={imgArrowRight} alt='Keyboard right arrow image' width='64' height='64'/>
+                <img src={imgArrowRight} alt='Keyboard right arrow' width='64' height='64'/>
             </button>
             <br/>
 
